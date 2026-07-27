@@ -143,4 +143,92 @@ footer{
 </footer>
 
 </body>
+<section class="booking-section">
+  <h2>Book Your Décor Consultation</h2>
+
+  <form id="bookingForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+
+    <label>Select Event Date:</label>
+    <input type="date" id="eventDate" required>
+
+    <label>Event Type:</label>
+    <select id="eventType" required>
+      <option value="">Choose an Event</option>
+      <option>Wedding</option>
+      <option>Birthday Party</option>
+      <option>Corporate Event</option>
+      <option>Baby Shower</option>
+      <option>Other</option>
+    </select>
+
+    <textarea id="details" placeholder="Tell us about your event"></textarea>
+
+    <button type="submit">Request Booking</button>
+  </form>
+
+  <div id="confirmation"></div>
+</section>
+
+<style>
+.booking-section {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #f9f5f0;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.booking-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.booking-section input,
+.booking-section select,
+.booking-section textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.booking-section button {
+    width: 100%;
+    padding: 12px;
+    background: #b8865b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.booking-section button:hover {
+    background: #9c704a;
+}
+
+#confirmation {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: green;
+}
+</style>
+
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const date = document.getElementById("eventDate").value;
+
+    document.getElementById("confirmation").innerHTML =
+        `Thank you, ${name}! Your booking request for ${date} has been received.`;
+
+    this.reset();
+});
+</script>
 </html>
